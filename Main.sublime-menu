@@ -1,0 +1,13 @@
+[
+{
+	"id" : "File",
+	"caption": "Redditsublime",
+	"children":
+	[
+	{
+		"caption" : "run",
+		"command" : "redditsublime"
+	}
+	]
+}
+]
