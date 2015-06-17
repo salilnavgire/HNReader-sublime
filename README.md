@@ -2,7 +2,7 @@ HNReader
 ==============
 
 Hacker News reader for sublime text 3
-Very very basic package to just scroll top new in HackerNews
+Very very basic package to just scroll top reads in HackerNews
 
 ![image](https://raw.githubusercontent.com/salilnavgire/HNReader-sublime/master/screen.png)
 
