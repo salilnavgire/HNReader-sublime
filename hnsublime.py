@@ -1,3 +1,4 @@
+'''
 import sublime, sublime_plugin
 #import urllib2
 #import urllib
@@ -28,4 +29,24 @@ class RedditsublimeCommand(sublime_plugin.TextCommand):
 
 	def show_quick_panel(self, messages, window):
 	  window.show_quick_panel(messages, None, sublime.MONOSPACE_FONT)
+'''
 
+import sublime
+import sublime_plugin
+import urllib
+import json
+url = 'https://news.ycombinator.com'
+sock = urllib.request.urlopen(url)
+print(sock)
+content = sock.read()
+
+print(content)
+
+#sock.close()
+
+#print content
+
+
+class CnpremailerCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.view.insert(edit, 0, "Hello, World!")

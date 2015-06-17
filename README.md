@@ -1,4 +1,4 @@
-RedditSublime
+HNReader
 =============
 
-Sublime text package for Reddit
+Hacker News reader for sublime text 3

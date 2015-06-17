@@ -1,12 +1,12 @@
 [
 {
-	"id" : "File",
-	"caption": "Redditsublime",
+	"id" : "cnPremailer",
+	"caption": "cnPremailer",
 	"children":
 	[
 	{
 		"caption" : "run",
-		"command" : "redditsublime"
+		"command" : "cnpremailer"
 	}
 	]
 }
