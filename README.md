@@ -3,7 +3,7 @@ HNReader
 
 Hacker News reader for sublime text 3.
 
-Very very basic package to just scroll top reads in https://news.ycombinator.com/
+Very very basic package to just scroll top reads on https://news.ycombinator.com/
 
 ![image](https://raw.githubusercontent.com/salilnavgire/HNReader-sublime/master/screen.png)
 
