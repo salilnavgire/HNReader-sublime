@@ -1,12 +1,12 @@
 [
 {
-	"id" : "cnPremailer",
-	"caption": "cnPremailer",
+	"id" : "hnreader",
+	"caption": "hnreader",
 	"children":
 	[
 	{
 		"caption" : "run",
-		"command" : "cnpremailer"
+		"command" : "hnreader"
 	}
 	]
 }
