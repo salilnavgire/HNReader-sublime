@@ -4,7 +4,7 @@ import urllib
 import json
 
 
-class CnpremailerCommand(sublime_plugin.TextCommand):
+class hnreaderCommand(sublime_plugin.TextCommand):
     def get_top_news(self):
         url = 'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty'
         sock = urllib.request.urlopen(url)
@@ -12,7 +12,7 @@ class CnpremailerCommand(sublime_plugin.TextCommand):
         base_url = 'https://hacker-news.firebaseio.com/v0/item/'
 
         titles = []
-        for res in top_story_ids[0:20]:
+        for res in top_story_ids[0:10]:
             new_url = base_url+str(res)+'.json?print=pretty'
             # print(new_url)
             sock1 = urllib.request.urlopen(new_url)
