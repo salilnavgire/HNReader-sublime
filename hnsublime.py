@@ -2,32 +2,45 @@ import sublime
 import sublime_plugin
 import urllib
 import json
+import webbrowser
 
 
-class hnreaderCommand(sublime_plugin.TextCommand):
+class hnreaderCommand(sublime_plugin.WindowCommand):
     def get_top_news(self):
         url = 'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty'
         sock = urllib.request.urlopen(url)
         top_story_ids = json.loads(sock.read().decode("utf-8", "strict"))
         base_url = 'https://hacker-news.firebaseio.com/v0/item/'
 
-        titles = []
+        self.titles = []
+        self.urls = []
+        self.texts = []
+        self.scores = []
         for res in top_story_ids[0:10]:
             new_url = base_url+str(res)+'.json?print=pretty'
             # print(new_url)
             sock1 = urllib.request.urlopen(new_url)
             strss = json.loads(sock1.read().decode("utf-8", "strict"))
-            titles.append(strss['title'])
-        return titles
+            self.titles.append(strss['title'])
+            self.urls.append(strss['url'])
+            self.texts.append(strss['text'])
+            self.scores.append(strss['score'])
+        return self.titles, self.urls, self.texts, self.scores
 
-    def run(self, edit):
-        urls = []
-        selections = self.view.sel()
-        for selection in selections:
-            urls.append(self.view.substr(selection))
+    def run(self):
+        messages, urls, texts, scores = self.get_top_news()
+        self.show_quick_panel1(messages, urls, texts, scores, self.window)
 
-        messages = self.get_top_news()
-        self.show_quick_panel(messages, self.view.window())
+    def show_quick_panel1(self, messages, urls, texts, scores, window):
+        self.feed_text = []
+        for i in range(len(messages)):
+            self.feed_text.append([str(i + 1) + '. ' + str(messages[i]), 'score:'+str(scores[i])+'('+urls[i]+')'])
 
-    def show_quick_panel(self, messages, window):
-        window.show_quick_panel(messages, None, sublime.MONOSPACE_FONT)
+        window.show_quick_panel(self.feed_text, self.openURL, sublime.MONOSPACE_FONT)
+
+    def onItemSelection(self):
+        pass
+
+    def openURL(self, index):
+        browser_url = self.urls[index]
+        webbrowser.open(browser_url)
