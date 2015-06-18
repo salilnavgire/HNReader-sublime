@@ -5,6 +5,7 @@ Hacker News reader for sublime text 3.
 
 Very very basic package to just scroll top reads on https://news.ycombinator.com/
 
+click on any item to open article in Web Browser
 
 ![image](https://raw.githubusercontent.com/salilnavgire/HNReader-sublime/master/screen.png)
 
