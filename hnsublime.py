@@ -21,10 +21,22 @@ class hnreaderCommand(sublime_plugin.WindowCommand):
             # print(new_url)
             sock1 = urllib.request.urlopen(new_url)
             strss = json.loads(sock1.read().decode("utf-8", "strict"))
-            self.titles.append(strss['title'])
-            self.urls.append(strss['url'])
-            self.texts.append(strss['text'])
-            self.scores.append(strss['score'])
+            try:
+                self.titles.append(strss['title'])
+            except KeyError:
+                self.titles.append([' '])
+            try:
+                self.urls.append(strss['url'])
+            except KeyError:
+                self.urls.append([' '])
+            try:
+                self.texts.append(strss['text'])
+            except KeyError:
+                self.texts.append([' '])
+            try:
+                self.scores.append(strss['score'])
+            except KeyError:
+                self.scores.append([' '])
         return self.titles, self.urls, self.texts, self.scores
 
     def run(self):
