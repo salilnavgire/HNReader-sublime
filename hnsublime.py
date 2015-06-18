@@ -50,9 +50,6 @@ class hnreaderCommand(sublime_plugin.WindowCommand):
 
         window.show_quick_panel(self.feed_text, self.openURL, sublime.MONOSPACE_FONT)
 
-    def onItemSelection(self):
-        pass
-
     def openURL(self, index):
         browser_url = self.urls[index]
         webbrowser.open(browser_url)
